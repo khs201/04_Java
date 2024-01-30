@@ -50,7 +50,7 @@ public class VariableEx3 {
 		int num4 = 2;
 
 		System.out.println(num3 / num4); // 5 / 2 == 2
-		System.out.println((double) (num3 / num4)); // 5 / 2 == 2.0
+		System.out.println("다 더블" + (double) (num3 / num4)); // 5 / 2 == 2.0
 		System.out.println((double) num3 / (double) num4); // 5 / 2 == 2.5
 		// 같은 자료형으로 만들어주면 된다
 
@@ -81,6 +81,9 @@ public class VariableEx3 {
 		byte temp2 = (byte) (temp1 + 1); // int 결과를 byte로 강제 형변환
 		System.out.println("temp1 : " + temp1); // 127
 		System.out.println("temp2 : " + temp2); // -128
+		
+		
+		
 		
 
 	}
