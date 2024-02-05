@@ -37,10 +37,10 @@ public class StudentService {
 			else				            std2 = createStudent(); break;
 			case 2:	
 				System.out.print("정보를 조회할 학생 선택 (1:std1 / 2:std2) : ");
-				int select = sc.nextInt();
-				if (select == 1)				std1 = createStudent();
-				else				            std2 = createStudent(); break;
-				break;
+				// int select = sc.nextInt();
+				// if (select == 1)				std1 = createStudent();
+				// else				            std2 = createStudent(); break;
+				//break;
 			case 3:	break;
 			case 4:	break;
 			case 5:	break;
