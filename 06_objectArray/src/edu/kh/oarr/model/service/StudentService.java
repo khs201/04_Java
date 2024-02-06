@@ -167,6 +167,8 @@ public class StudentService {
 		double maxAvg = 0.0; // 평균 최고점
 		double minAvg = 0.0; // 평균 최저점
 
+		
+		
 		// 향상된 for문
 		for (Student s : students) {
 
