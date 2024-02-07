@@ -203,9 +203,9 @@ public class PolyService {
 	 * 다형성 확인 7 -> 반환형에 다형성(업캐스팅) 적용
 	 */
 	public void method7() {
-		printToString(createPhone(1));
-		printToString(createPhone(2));
-		printToString(createPhone(3));
+		printToString(createPhone(1)); // new SmartPhone()으로 생성된 객체 주소
+		printToString(createPhone(2)); // new Iphone()으로 생성된 객체 주소
+		printToString(createPhone(3)); // new Galaxy()으로 생성된 객체 주소
 	}
 
 	/**
@@ -223,6 +223,77 @@ public class PolyService {
 		}
 		return new Galaxy();
 
+	}
+
+	/**
+	 * instanceof 연산자
+	 * 
+	 * - 참조변수 instanceof 클래스명
+	 * 
+	 * -> 참조 변수가 참조하는 객체(instance)가 지정된 클래스로 만들어진 객체가 맞아? 맞으면 true / 아니면 false가 반환되는
+	 * 연산자
+	 * 
+	 * + 상속 검사 용도로도 사용
+	 */
+	public void method8() {
+
+		// instanceof 연산자 연습
+		SmartPhone s1 = new SmartPhone();
+		System.out.println(s1 instanceof SmartPhone); // true
+
+		// -> SmartPhone과 Iphone은 상속 관계가 맞으나
+		// s1이 참조하는 객체가 Iphone 클래스로 만들어진 객체인지
+		// 물어보는 것이기 때문에 false 반환
+		System.out.println(s1 instanceof Iphone); // false
+
+		// System.out.println(s1 instanceof PolyService); // 상속관계가 아니라서 instanceof 검사
+		// 자체를 진행 못함
+		// String은 비교가 안된다
+		// System.out.println(s2 instanceof String); // // Incompatible conditional
+		// operand types SmartPhone and String
+
+		System.out.println("------------");
+		SmartPhone s2 = new Iphone();
+
+		System.out.print("s2 instanceof Iphone : ");
+		System.out.println(s2 instanceof Iphone); // true
+		System.out.println("s2 instanceof SmartPhone : " + (s2 instanceof SmartPhone)); // true
+		System.out.println();
+
+	}
+
+	/**
+	 * 객체 배열 + 업캐스팅 + 다운 캐스팅 + instanceof
+	 */
+	public void method9() {
+
+		// 부모 타입 객체 배열 생성
+		// -> 스마트폰 참조 변수 3칸짜리 배열 생성
+		SmartPhone[] arr = new SmartPhone[3];
+
+		// 부모 타입 객체 배열 = 요소 별로 부모/자식 객체 초기화
+		// (업캐스팅)
+		// + 메서드 반환형에 다형성(업캐스팅) 적용
+		for (int i = 0; i < arr.length; i++) { // 순차 접근(반복 접근) 포문
+
+			arr[i] = createPhone(i + 1); // 1 : new SmartPhone(); 2 : '' Iphone`` 3 : '' Galaxy ''
+
+		}
+
+		// 향상된 for문 + instanceof + 다운 캐스팅
+		for (SmartPhone s : arr) {
+
+			if (s instanceof Iphone) { // s가 참조하고 있는 객체가 Iphone 클래스를 참조하여 만든 객체가 맞아?
+				((Iphone) s).setIosVersion(999);
+			} else if (s instanceof Galaxy) { // s가 참조하고 있는 객체가 Galaxy 클래스를 참조하여 만든 객체가 맞아?
+				((Galaxy) s).setAndroidVersion(888);
+			} else { // Iphone도 Galaxy도 참조하지 않고 만든 경우 == 부모 타입인 SmartPhone
+				s.setDisplay("부모 화면");
+			}
+		}
+		for (SmartPhone s : arr) {
+			printToString(s);
+		}
 	}
 
 }// 클래스

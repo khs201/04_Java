@@ -10,6 +10,6 @@ public class PolyRun {
 		
 		// service.method1();
 		//service.method2();
-		service.method7();
+		service.method9();
 	}
 }
