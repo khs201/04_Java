@@ -6,6 +6,6 @@ public class JavaAPIRun {
 	public static void main(String[] args) {
 		JavaAPIService service = new JavaAPIService();
 		
-		service.method3();
+		service.method6();
 	}
 }
