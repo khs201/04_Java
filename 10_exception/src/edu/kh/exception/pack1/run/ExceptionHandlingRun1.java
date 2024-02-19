@@ -7,6 +7,6 @@ public class ExceptionHandlingRun1 {
 	public static void main(String[] args) {
 		ExceptionHandlingService1 service = new ExceptionHandlingService1();
 		
-		service.method5();
+		service.method1();
 	}
 }
